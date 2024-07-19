@@ -68,7 +68,7 @@ DepthImageToLaserScanROS::DepthImageToLaserScanROS(const rclcpp::NodeOptions & o
   float range_max = this->declare_parameter("range_max", 10.0);
 
   int scan_height = this->declare_parameter("scan_height", 1);
-  int scan_offset = this->declare_parameter("scan_offset", 0.5);
+  float scan_offset = this->declare_parameter("scan_offset", 0.5);
 
   std::string output_frame = this->declare_parameter("output_frame", "camera_depth_frame");
 
