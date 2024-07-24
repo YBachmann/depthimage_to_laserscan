@@ -172,7 +172,7 @@ private:
     const T * depth_row = reinterpret_cast<const T *>(&depth_msg->data[0]);
     int row_step = depth_msg->step / sizeof(T);
 
-    int offset = static_cast<int>((cam_model.cy()*2*scan_offset) -
+    int offset = static_cast<int>((cam_model.cy() * 2 * scan_offset) -
       static_cast<double>(scan_height) / 2.0);
     depth_row += offset * row_step;  // Offset to center of image
     for (int v = offset; v < offset + scan_height_; v++, depth_row += row_step) {
