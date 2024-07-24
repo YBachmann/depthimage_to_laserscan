@@ -70,7 +70,7 @@ public:
    *                    still not smaller than range_min.  This can be used to vertically compress obstacles into
    *                    a single LaserScan.
    * @param scan_offset Center position of the LaserScan. A value of 0.0 corresponds to the top row of the image
-   *                    while 1.0 corresponds to the bottom row of the image. 
+   *                    while 1.0 corresponds to the bottom row of the image.
    * @param frame_id The output frame_id for the LaserScan.  This will probably NOT be the same frame_id as the
    *                 depth image.  Example: For OpenNI cameras, this should be set to 'camera_depth_frame' while
    *                 the camera uses 'camera_depth_optical_frame'.
