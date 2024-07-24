@@ -208,7 +208,8 @@ private:
   float range_min_;  ///< Stores the current minimum range to use.
   float range_max_;  ///< Stores the current maximum range to use.
   int scan_height_;  ///< Number of pixel rows to use when producing a laserscan from an area.
-  ///< Height ratio of the image where the center of the scan line should be (0.0=top row, 1.0=bottom row).
+  ///< Height ratio of the image where the center of the scan line should be.
+  // (0.0=top row, 1.0=bottom row).
   float scan_offset_;
   ///< Output frame_id for each laserscan.  This is likely NOT the camera's frame_id.
   std::string output_frame_id_;

@@ -154,7 +154,7 @@ TEST(ConvertTest, testScanHeight)
     uint16_t * data = reinterpret_cast<uint16_t *>(&depth_msg_->data[0]);
     int row_step = depth_msg_->step / sizeof(uint16_t);
 
-    int offset = static_cast<int>((info_msg_->k[5]*2*g_scan_offset) - 
+    int offset = static_cast<int>((info_msg_->k[5] * 2 * g_scan_offset) -
       static_cast<double>(scan_height) / 2.0);
     data += offset * row_step;  // Offset to center of image
 
