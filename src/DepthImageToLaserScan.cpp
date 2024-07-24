@@ -50,8 +50,8 @@ namespace depthimage_to_laserscan
 DepthImageToLaserScan::DepthImageToLaserScan(
   float scan_time, float range_min, float range_max,
   int scan_height, float scan_offset, const std::string & frame_id)
-: scan_time_(scan_time), range_min_(range_min), range_max_(range_max), scan_height_(scan_height), scan_offset_(scan_offset),
-  output_frame_id_(frame_id)
+: scan_time_(scan_time), range_min_(range_min), range_max_(range_max), scan_height_(scan_height),
+  scan_offset_(scan_offset), output_frame_id_(frame_id)
 {
 }
 
@@ -143,13 +143,14 @@ sensor_msgs::msg::LaserScan::UniquePtr DepthImageToLaserScan::convert_msg(
   scan_msg->range_max = range_max_;
 
   // Check scan_height vs image_height
-  double center_row = cam_model_.cy()*2*scan_offset_;
-  double bottom_row = center_row - scan_height_/2;
-  double top_row = center_row + scan_height_/2;
-  if (bottom_row < 0 || top_row >= depth_msg->height)
-  {
+  double center_row = cam_model_.cy() * 2 * scan_offset_;
+  double bottom_row = center_row - scan_height_ / 2;
+  double top_row = center_row + scan_height_ / 2;
+  if (bottom_row < 0 || top_row >= depth_msg->height) {
     std::stringstream ss;
-    ss << "scan_height ( " << scan_height_ << " pixels) is too large for the image height ( " << depth_msg->height << " ) with a scan_offset of " << scan_offset_ << " and cy of " << cam_model_.cy() << ". ";
+    ss << "scan_height ( " << scan_height_ << " pixels) is too large for the image height ( " <<
+      depth_msg->height << " ) with a scan_offset of " << scan_offset_ << " and cy of " <<
+      cam_model_.cy() << ". ";
     throw std::runtime_error(ss.str());
   }
 
